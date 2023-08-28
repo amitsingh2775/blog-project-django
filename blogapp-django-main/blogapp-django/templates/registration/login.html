@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    
+    <div class="d-flex d-flex justify-content-center rounded-circle t-2  ">
+        <img src="{% static 'images/avtar.png' %}" alt="Logo" class="img-fluid mr-2" style="max-height: 200px; max-width: 200px;"> <!-- Replace 'path_to_your_logo_image.png' with the actual path to your logo image -->
+    </div>
+    
+    <div class="row justify-content-center  ">
+        
+        <div class="col-md-6">
+            <div class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded rounded-top border border-primary">
+                <div class="card-header bg-primary text-white rounded-top">
+                    <h2 class="text-center">
+                       
+                        Login
+                    </h2>
+                </div>
+                <div class="card-body ">
+                    <form method="post" >
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <div class="text-center mt-4 ">
+                            <button type="submit" class="btn btn-primary rounded-pill">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5 ">
+    <div class="row">
+        {% for blog in object_list %}
+        <div class="col-md-6 mb-4">
+            <div class="card border-0 shadow">
+                {% if blog.image %}
+                <img src="{{ blog.image.url }}" class="card-img-top" alt="{{ blog.title }}">
+                {% endif %}
+                <div class="card-body">
+                    <h2 class="card-title">
+                        <a href="{% url 'blog:detail' blog.id %}" class="text-decoration-none text-dark">{{ blog.title }}</a>
+                    </h2>
+                    <p class="card-text">{{ blog.body|truncatewords:30 }}</p>
+                </div>
+                <div class="card-footer bg-transparent border-top-0">
+                    <a href="{% url 'blog:detail' blog.id %}" class="btn btn-primary btn-sm">Read More</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center shadow-sm">
+        <div class="col-md-8 shadow-sm">
+            <div class="card shadow-sm">
+                <div class="card-header bg-success text-white">
+                    <h2 class="text-center">Edit Post</h2>
+                </div>
+                <div class="card-body shadow-sm">
+                    <form action="" method="post" class="container mt-5 border-start-0">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="{{ form.title.id_for_label }}">Title</label>
+                            {{ form.title }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.body.id_for_label }}"></label>
+                            {{ form.body }}
+                        </div>
+                       
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-primary">update</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

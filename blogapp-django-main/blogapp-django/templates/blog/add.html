@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<style>
+    /* Additional style to adjust button color */
+    form input[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    form input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-info text-dark rounded-top">
+                    <h2 class="text-center">New Post</h2>
+                </div>
+                <div class="card-body border border-info border-start-0">
+                    <form action="" method="post" enctype="multipart/form-data" class="bg-primary-subtle text-emphasis-primary rounded-top">
+                        {% csrf_token %}
+                        <div class="form-group shadow-lg p-3 mb-2 bg-body-tertiary rounded">
+                            <label for="{{ form.title.id_for_label }}">Title</label>
+                            {{ form.title }}
+                        </div>
+                        <div class="form-group shadow-lg p-3 mb-2 bg-body-tertiary rounded">
+                            <label for="{{ form.body.id_for_label }}">Body</label>
+                            {{ form.body }}
+                        </div>
+                        <div class="form-group shadow-lg p-3 mb-2 bg-body-tertiary rounded">
+                            <label for="{{ form.image.id_for_label }}">Image</label>
+                            {{ form.image }}
+                        </div>
+                        <div class="form-group shadow-lg p-3 mb-2 bg-body-tertiary rounded">
+                            <label for="{{ form.author.id_for_label }}">User</label>
+                            {{ form.author }}
+                        </div>
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-primary shadow-lg bg-body-tertiary rounded w-25">Post</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

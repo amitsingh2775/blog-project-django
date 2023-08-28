@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card border-0 shadow">
+                <img src="{{ blog.image.url }}" class="card-img-top" alt="{{ blog.title }}">
+                <div class="card-body">
+                    <h2 class="card-title fw-bold text-success">{{ blog.title }}</h2>
+                    <p class="card-text">{{ blog.body }}</p>
+                </div>
+                <div class="card-footer bg-transparent border-0">
+                    <div class="d-flex justify-content-end col">
+                        <a href="{% url 'blog:edit' blog.pk %}" class="btn btn-primary me-3">Edit</a>
+                        <a href="{% url 'blog:delete' blog.pk %}" class="btn btn-danger me-6">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
